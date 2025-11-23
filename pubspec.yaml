@@ -1,0 +1,36 @@
+name: studentsyrianapp
+description: "Flutter front-end implementation for the Syrian Students Gathering App."
+publish_to: "none"
+version: 0.1.0
+
+environment:
+  sdk: ^3.9.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_lints: ^5.0.0
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/font/
+    - assets/img/
+
+  fonts:
+    - family: Tajawal
+      fonts:
+        - asset: assets/font/tajawal/Tajawal-Extralight.ttf
+          weight: 100
+        - asset: assets/font/tajawal/Tajawal-Light.ttf
+          weight: 200
+        - asset: assets/font/tajawal/Tajawal-Regular.ttf
+          weight: 300
+        - asset: assets/font/tajawal/Tajawal-Medium.ttf
+          weight: 400
+        - asset: assets/font/tajawal/Tajawal-Bold.ttf
+          weight: 500
