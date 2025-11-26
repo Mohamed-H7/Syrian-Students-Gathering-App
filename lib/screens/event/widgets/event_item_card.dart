@@ -29,26 +29,19 @@ class EventItemCard extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         child: Column(
           mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Container(
-                  padding: const EdgeInsets.all(12),
-                  decoration: BoxDecoration(
-                    color: color,
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: Icon(iconData, color: Colors.white, size: 20),
-                ),
-                SizedBox(width: 12),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         title,
+                        maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                           fontSize: 16,
@@ -90,30 +83,45 @@ class EventItemCard extends StatelessWidget {
                     ],
                   ),
                 ),
+                SizedBox(width: 12),
+
+                Container(
+                  width: 100,
+                  height: 100,
+                  padding: const EdgeInsets.all(12),
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('assets/img/BG.png'),
+                      fit: BoxFit.fill,
+                    ),
+                    color: color,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Text(
+                    "",
+                  ), // Icon(iconData, color: Colors.white, size: 20)
+                ),
               ],
             ),
 
-            const SizedBox(height: 12),
-            Padding(
-              padding: const EdgeInsets.only(right: 50),
-              child: SizedBox(
-                width: double.infinity,
-                child: TextButton(
-                  style: TextButton.styleFrom(
-                    backgroundColor: color,
-                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 8),
-                    minimumSize: Size(50, 20),
-                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                    // alignment: Alignment.centerLeft,
-                  ),
-                  onPressed: () {},
-                  child: Text(
-                    "عرض التفاصيل",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 14,
-                    ),
+            const SizedBox(height: 16),
+            SizedBox(
+              width: double.infinity,
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  backgroundColor: color,
+                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+                  minimumSize: Size(50, 20),
+                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  // alignment: Alignment.centerLeft,
+                ),
+                onPressed: () {},
+                child: Text(
+                  "عرض التفاصيل والتسجيل",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 14,
                   ),
                 ),
               ),

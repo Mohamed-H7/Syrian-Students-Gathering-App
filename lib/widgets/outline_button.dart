@@ -18,7 +18,7 @@ class OutlineButtonCustom extends StatelessWidget {
       // width: 250,
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(30),
+        borderRadius: BorderRadius.circular(15),
         border: Border.all(color: Colors.grey.shade300),
         boxShadow: [
           BoxShadow(
@@ -31,7 +31,7 @@ class OutlineButtonCustom extends StatelessWidget {
       child: Material(
         color: Colors.transparent,
         child: InkWell(
-          borderRadius: BorderRadius.circular(30),
+          borderRadius: BorderRadius.circular(15),
           onTap: onTap,
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),

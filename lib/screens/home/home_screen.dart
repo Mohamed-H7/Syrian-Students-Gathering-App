@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../model/notification_item.dart';
 import '../../widgets/layouts/grid_layout.dart';
 import '../../widgets/section_heading.dart';
-import 'widgets/main_section.dart';
+import 'widgets/news_item.dart';
 import 'widgets/notifications_card.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -98,13 +98,14 @@ class HomeScreen extends StatelessWidget {
                 SectionHeading(title: 'الأقسام الرئيسية'),
                 const SizedBox(height: 5.0),
                 GridLayout(
-                  itemCount: 4,
+                  itemCount: 2,
+                  crossAxisCount: 1,
                   mainAxisExtent: 140,
                   itemBuilder: (context, index) {
-                    return MainSection(
+                    return NewsItem(
                       onTap: () {},
-                      title: "الأخبار",
-                      subtitle: "أخبار الجامعة",
+                      title: "عنوان الخبر",
+                      subtitle: " وصف مختصر للخبر",
                       iconData: Icons.article_outlined,
                       color: Colors.blue,
                     );

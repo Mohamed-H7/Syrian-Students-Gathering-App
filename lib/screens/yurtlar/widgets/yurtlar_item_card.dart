@@ -119,26 +119,61 @@ class YurtlarItemCard extends StatelessWidget {
           const SizedBox(height: 12),
           Padding(
             padding: const EdgeInsets.only(right: 50),
-            child: SizedBox(
-              width: double.infinity,
-              child: TextButton(
-                style: TextButton.styleFrom(
-                  backgroundColor: color,
-                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 8),
-                  minimumSize: Size(50, 20),
-                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                  // alignment: Alignment.centerLeft,
-                ),
-                onPressed: () {},
-                child: Text(
-                  "التقديم على السكن",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 14,
+            child: Row(
+              children: [
+                Expanded(
+                  child: TextButton(
+                    style: TextButton.styleFrom(
+                      backgroundColor: color,
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 10,
+                        vertical: 8,
+                      ),
+                      minimumSize: Size(50, 20),
+                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                      // alignment: Alignment.centerLeft,
+                    ),
+                    onPressed: () {},
+                    child: Text(
+                      "تفاصيل السكن",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14,
+                      ),
+                    ),
                   ),
                 ),
-              ),
+
+                SizedBox(width: 8),
+                OutlinedButton(
+                  style: IconButton.styleFrom(
+                    // backgroundColor: color,
+                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                    minimumSize: Size(50, 20),
+                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  ),
+
+                  onPressed: () {},
+                  child: Icon(
+                    Icons.phone_outlined,
+                    color: Colors.black,
+                    size: 20,
+                  ),
+                ),
+                SizedBox(width: 8),
+                OutlinedButton(
+                  style: IconButton.styleFrom(
+                    // backgroundColor: color,
+                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                    minimumSize: Size(50, 20),
+                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  ),
+
+                  onPressed: () {},
+                  child: Icon(Icons.location_on, color: Colors.black, size: 20),
+                ),
+              ],
             ),
           ),
         ],
