@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-class ItemCard extends StatelessWidget {
-  const ItemCard({
+class DetailsItemCard extends StatelessWidget {
+  const DetailsItemCard({
     super.key,
     required this.color,
-    required this.onTap,
+
     required this.child,
     this.padding = 16,
   });
 
   final Color color;
-  final VoidCallback onTap;
+
   final Widget child;
   final double padding;
 
@@ -31,14 +31,7 @@ class ItemCard extends StatelessWidget {
         ],
       ),
 
-      child: Material(
-        color: Colors.transparent,
-        child: InkWell(
-          borderRadius: BorderRadius.circular(20),
-          onTap: onTap,
-          child: Padding(padding: EdgeInsets.all(padding), child: child),
-        ),
-      ),
+      child: Padding(padding: EdgeInsets.all(padding), child: child),
     );
   }
 }

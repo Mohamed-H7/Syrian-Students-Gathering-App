@@ -1,24 +1,21 @@
 import 'package:flutter/material.dart';
 
+import '../../../model/event_model.dart';
 import '../../../widgets/item_card.dart';
 
 class EventItemCard extends StatelessWidget {
   const EventItemCard({
     super.key,
-    required this.title,
-    required this.date,
-    required this.time,
-    required this.location,
-    required this.iconData,
+
+    required this.obj,
     required this.color,
     required this.onTap,
   });
 
-  final String title;
-  final String date, time, location;
-  final IconData iconData;
   final Color color;
   final VoidCallback onTap;
+
+  final EventModel obj;
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +37,7 @@ class EventItemCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        title,
+                        obj.title,
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
@@ -57,7 +54,12 @@ class EventItemCard extends StatelessWidget {
                         children: [
                           Icon(Icons.date_range, color: color),
                           SizedBox(width: 4),
-                          Text(date),
+                          Expanded(
+                            child: Text(
+                              obj.date,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
                         ],
                       ),
                       const SizedBox(height: 4),
@@ -67,7 +69,12 @@ class EventItemCard extends StatelessWidget {
                         children: [
                           Icon(Icons.timer_sharp, color: color),
                           SizedBox(width: 4),
-                          Text(time),
+                          Expanded(
+                            child: Text(
+                              obj.time,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
                         ],
                       ),
                       const SizedBox(height: 4),
@@ -77,7 +84,12 @@ class EventItemCard extends StatelessWidget {
                         children: [
                           Icon(Icons.location_on_outlined, color: color),
                           SizedBox(width: 4),
-                          Text(location),
+                          Expanded(
+                            child: Text(
+                              obj.konum,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
                         ],
                       ),
                     ],
@@ -91,15 +103,12 @@ class EventItemCard extends StatelessWidget {
                   padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage('assets/img/BG.png'),
+                      image: AssetImage(obj.images[0]),
                       fit: BoxFit.fill,
                     ),
                     color: color,
                     borderRadius: BorderRadius.circular(12),
                   ),
-                  child: Text(
-                    "",
-                  ), // Icon(iconData, color: Colors.white, size: 20)
                 ),
               ],
             ),
@@ -115,7 +124,7 @@ class EventItemCard extends StatelessWidget {
                   tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                   // alignment: Alignment.centerLeft,
                 ),
-                onPressed: () {},
+                onPressed: onTap,
                 child: Text(
                   "عرض التفاصيل والتسجيل",
                   style: TextStyle(

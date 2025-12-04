@@ -8,14 +8,14 @@ class AdministrationItemCard extends StatelessWidget {
     required this.title,
     required this.job,
     required this.aboutHim,
-    required this.iconData,
+
     required this.color,
     required this.onTap,
   });
 
   final String title;
   final String job, aboutHim;
-  final IconData iconData;
+
   final Color color;
   final VoidCallback onTap;
 

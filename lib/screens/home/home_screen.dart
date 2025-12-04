@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
+import '../../model/news_model.dart';
 import '../../model/notification_item.dart';
 import '../../widgets/layouts/grid_layout.dart';
 import '../../widgets/section_heading.dart';
+import '../news/widgets/news_details_screen.dart';
 import 'widgets/news_item.dart';
 import 'widgets/notifications_card.dart';
 
@@ -11,6 +13,22 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final NewsModel news = NewsModel(
+      title: 'افتتاح مركز الابتكار الجديد',
+      subtitle:
+          'تم افتتاح مركز الابتكار التكنولوجي في الحرم الجامعي لدعم مشاريع الطلاب والبحث العلمي',
+      date: DateTime.now().toString().substring(0, 10),
+      details: '''
+في خطوة نوعية لتعزيز ثقافة الابتكار والإبداع، افتتحت الجامعة مركز الابتكار التكنولوجي الجديد في الحرم الجامعي الرئيسي. يأتي هذا المشروع ضمن رؤية الجامعة الاستراتيجية لتمكين الطلاب والباحثين من تحويل أفكارهم الإبداعية إلى واقع ملموس.
+
+يضم المركز أحدث التقنيات والمعدات المتطورة، بما في ذلك مختبرات متخصصة في الذكاء الاصطناعي، وإنترنت الأشياء، والواقع الافتراضي والمعزز. كما يوفر المركز بيئة عمل مشتركة مجهزة بالكامل لاستضافة فرق العمل والشركات الناشئة.
+
+وقد أكد معالي مدير الجامعة في كلمة الافتتاح على أهمية هذا المركز في تحقيق رؤية المملكة ٢٠٣٠، مشيراً إلى أن المركز سيكون بمثابة حاضنة للمواهب الوطنية ومنصة لتطوير الحلول التقنية المبتكرة.
+
+يقدم المركز مجموعة متنوعة من البرامج التدريبية وورش العمل المتخصصة، إلى جانب توفير الإرشاد والتوجيه من قبل خبراء ومتخصصين في مجالات التكنولوجيا وريادة الأعمال.
+''',
+      images: ['assets/img/BG.png', 'assets/img/BG.png', 'assets/img/BG.png'],
+    );
     final notifications = [
       NotificationItem(
         title: "فعالية جديدة: ملتقى التوظيف",
@@ -103,10 +121,18 @@ class HomeScreen extends StatelessWidget {
                   mainAxisExtent: 140,
                   itemBuilder: (context, index) {
                     return NewsItem(
-                      onTap: () {},
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => NewsDetailsScreen(
+                            color: Color(0xFF006db7),
+                            obj: news,
+                          ),
+                        ),
+                      ),
                       title: "عنوان الخبر",
                       subtitle: " وصف مختصر للخبر",
-                      iconData: Icons.article_outlined,
+
                       color: Colors.blue,
                     );
                   },

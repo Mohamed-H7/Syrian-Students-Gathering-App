@@ -5,14 +5,13 @@ class NewsItem extends StatelessWidget {
     super.key,
     required this.title,
     required this.subtitle,
-    required this.iconData,
     required this.color,
     required this.onTap,
   });
 
   final String title;
   final String subtitle;
-  final IconData iconData;
+
   final Color color;
   final VoidCallback? onTap;
 
@@ -56,7 +55,6 @@ class NewsItem extends StatelessWidget {
                     color: color,
                     borderRadius: BorderRadius.circular(12),
                   ),
-                  child: Text(""),
                 ),
 
                 const SizedBox(width: 12),
@@ -116,7 +114,7 @@ class NewsItem extends StatelessWidget {
                                     borderRadius: BorderRadius.circular(10),
                                   ),
                                 ),
-                                onPressed: () {},
+                                onPressed: onTap,
                                 child: const Text(
                                   "اقرأ المزيد",
                                   style: TextStyle(

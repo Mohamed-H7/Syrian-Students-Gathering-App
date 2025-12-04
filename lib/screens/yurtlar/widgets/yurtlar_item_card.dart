@@ -1,25 +1,23 @@
 import 'package:flutter/material.dart';
 
+import '../../../model/yurt_model.dart';
 import '../../../widgets/item_card.dart';
 
 class YurtlarItemCard extends StatelessWidget {
   const YurtlarItemCard({
     super.key,
-    required this.title,
-    required this.durum,
-    required this.personelData,
-    required this.rentData,
-    required this.location,
+
     required this.iconData,
     required this.color,
     required this.onTap,
+    required this.obj,
   });
 
-  final String title, durum;
-  final String personelData, rentData, location;
   final IconData iconData;
   final Color color;
   final VoidCallback onTap;
+
+  final YurtModel obj;
 
   @override
   Widget build(BuildContext context) {
@@ -47,16 +45,21 @@ class YurtlarItemCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
                       children: [
-                        Text(
-                          title,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
+                        Expanded(
+                          child: Text(
+                            obj.title,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
-                        Spacer(),
+                        // Spacer(),
+                        SizedBox(width: 5),
                         Container(
                           // margin: EdgeInsets.only(left: 6),
                           padding: EdgeInsets.symmetric(
@@ -68,7 +71,7 @@ class YurtlarItemCard extends StatelessWidget {
                             borderRadius: BorderRadius.circular(12),
                           ),
                           child: Text(
-                            durum,
+                            obj.durum,
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 12,
@@ -87,7 +90,7 @@ class YurtlarItemCard extends StatelessWidget {
                       children: [
                         Icon(Icons.location_on_outlined, color: color),
                         SizedBox(width: 4),
-                        Text(location),
+                        Text(obj.konum),
                       ],
                     ),
                     const SizedBox(height: 4),
@@ -97,7 +100,7 @@ class YurtlarItemCard extends StatelessWidget {
                       children: [
                         Icon(Icons.person_outline_sharp, color: color),
                         SizedBox(width: 4),
-                        Text(personelData),
+                        Text(obj.personelData),
                       ],
                     ),
                     const SizedBox(height: 4),
@@ -107,7 +110,7 @@ class YurtlarItemCard extends StatelessWidget {
                       children: [
                         Icon(Icons.attach_money_rounded, color: color),
                         SizedBox(width: 4),
-                        Text(rentData),
+                        Text(obj.fiyat),
                       ],
                     ),
                   ],
@@ -133,7 +136,7 @@ class YurtlarItemCard extends StatelessWidget {
                       tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                       // alignment: Alignment.centerLeft,
                     ),
-                    onPressed: () {},
+                    onPressed: onTap,
                     child: Text(
                       "تفاصيل السكن",
                       style: TextStyle(

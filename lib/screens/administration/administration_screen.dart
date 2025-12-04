@@ -22,7 +22,7 @@ class AdministrationScreen extends StatelessWidget {
                 title: "عضو الإدارة رقم ${index + 1}",
                 job: "المسمى الوظيفي هنا",
                 aboutHim: "نبذة مختصرة عن عضو الإدارة رقم ${index + 1} هنا.",
-                iconData: Icons.article,
+
                 color: Color(0xFF00a5a5),
 
                 onTap: () {},

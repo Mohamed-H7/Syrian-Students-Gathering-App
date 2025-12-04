@@ -4,6 +4,7 @@ import 'package:studentsyrianapp/screens/news/news_screen.dart';
 import 'screens/administration/administration_screen.dart';
 import 'screens/event/event_screen.dart';
 import 'screens/home/home_screen.dart';
+import 'screens/setting/setting_screen.dart';
 import 'screens/yurtlar/yurtlar_screen.dart';
 
 class NavigationMenu extends StatefulWidget {
@@ -16,13 +17,13 @@ class NavigationMenu extends StatefulWidget {
 class _NavigationMenuState extends State<NavigationMenu> {
   int currentIndex = 0;
 
-  final List<Widget> pages = const [
-    HomeScreen(),
-    NewsScreen(),
-    EventScreen(),
-    YurtlarScreen(),
-    AdministrationScreen(),
-    Center(child: Text("الإعدادات")),
+  final List<Widget> pages = [
+    const HomeScreen(),
+    const NewsScreen(),
+    const EventScreen(),
+    const YurtlarScreen(),
+    const AdministrationScreen(),
+    const SettingScreen(),
   ];
 
   @override

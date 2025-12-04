@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
 
+import '../../../model/news_model.dart';
 import '../../../widgets/item_card.dart';
 
 class NewsItemCard extends StatelessWidget {
   const NewsItemCard({
     super.key,
-    required this.title,
-    required this.subtitle,
+
+    required this.obj,
     required this.iconData,
     required this.color,
     required this.onTap,
   });
 
-  final String title;
-  final String subtitle;
   final IconData iconData;
   final Color color;
   final VoidCallback onTap;
+
+  final NewsModel obj;
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +47,7 @@ class NewsItemCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        title,
+                        obj.title,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                           fontSize: 16,
@@ -56,7 +57,12 @@ class NewsItemCard extends StatelessWidget {
 
                       const SizedBox(height: 4),
 
-                      Text(subtitle, style: TextStyle(fontSize: 12)),
+                      Text(
+                        obj.subtitle,
+                        maxLines: 3,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(fontSize: 12),
+                      ),
                     ],
                   ),
                 ),
@@ -69,10 +75,7 @@ class NewsItemCard extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    DateTime.now().toString().substring(0, 10),
-                    style: TextStyle(fontSize: 12),
-                  ),
+                  Text(obj.date, style: TextStyle(fontSize: 12)),
                   TextButton(
                     style: TextButton.styleFrom(
                       backgroundColor: color,
@@ -82,9 +85,8 @@ class NewsItemCard extends StatelessWidget {
                       ),
                       minimumSize: Size(50, 20),
                       tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                      // alignment: Alignment.centerLeft,
                     ),
-                    onPressed: () {},
+                    onPressed: onTap,
                     child: Text(
                       "اقرأ المزيد",
                       style: TextStyle(
